@@ -6,10 +6,9 @@ hwclock --systohc --utc
 date
 echo Nikita > /etc/hostname 
 echo "127.0.1.1 localhost.localdomain Nikita" > /etc/hosts
-pacman -S networkmanager haveged dbus-broker
-systemctl enable NetworkManager & systemctl enable haveged & systemctl enable dbus-broker
+pacman -Suy networkmanager haveged dbus-broker grub efibootmgr plasma-nm yakuake dolphin ark gwenview ssdm plasma-dekstop
+systemctl enable NetworkManager & systemctl enable haveged & systemctl enable dbus-broker & systemctl enable sddm
 passwd
-pacman -S grub efibootmgr
 useradd -m -g users -G wheel -s /bin/bash nikita
 sh -c "sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers"
 passwd nikita
@@ -21,7 +20,6 @@ mkdir /boot/efi
 mount /dev/nvme0n1p5 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --removable
 grub-mkconfig -o /boot/grub/grub.cfg
-pacman -Suuyy
 exit
 umount -R /mnt
 
