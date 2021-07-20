@@ -11,6 +11,7 @@ systemctl enable NetworkManager
 passwd
 pacman -S grub efibootmgr
 useradd -m -g users -G wheel -s /bin/bash nikita
+sh -c "sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers"
 passwd nikita
 mkdir /boot/efi 
 mount /dev/sda1 /boot/efi
