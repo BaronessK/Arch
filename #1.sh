@@ -13,3 +13,5 @@ echo -e "[options] \n HoldPkg = pacman glibc \n Architecture = auto \n CheckSpac
 pacstrap /mnt base base-devel intel-ucode iucode-tool linux-tkg-muqss-generic_v3 linux-tkg-muqss-generic_v3-headers git pipewire pipewire-pulse pipewire-alsa
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt /bin/bash
+mv /Baronessk0-19 /mnt
+chmod +x /mnt/Baronessk0-19/#2.sh
