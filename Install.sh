@@ -7,8 +7,7 @@ btrfs subvolume create /mnt/@root
 btrfs subvolume create /mnt/@home
 umount /mnt
 mount -o compress=zstd,noatime,space_cache=v2,ssd,subvol=@root /dev/sda2 /mnt
-mkdir /mnt/{home}
-mount -o compress=zstd,noatimespace_cache=v2,subvol=@home /dev/sda2 /mnt/home
-mkdir /boot/efi
+mkdir /mnt/{/boot/efi,home}
+mount -o compress=zstd,noatime,space_cache=v2,ssd,subvol=@home /dev/sda2 /mnt/home
 mount /dev/sda1 /mnt/boot/efi
 #pacstrap /mnt base base-devel btrfs-progs efibootmgr intel-ucode iucode-tool nano linux-tkg-muqss-generic_v3 linux-tkg-muqss-generic_v3-headers
