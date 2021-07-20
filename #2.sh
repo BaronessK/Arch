@@ -6,11 +6,8 @@ hwclock --systohc --utc
 date
 echo Nikita > /etc/hostname 
 echo "127.0.1.1 localhost.localdomain Nikita" > /etc/hosts
-pacman -S networkmanager
-systemctl enable NetworkManager 
-pacman -S haveged dbus-broker
-systemctl enable haveged
-systemctl enable dbus-broker
+pacman -S networkmanager haveged dbus-broker
+systemctl enable NetworkManager & systemctl enable haveged & systemctl enable dbus-broker
 passwd
 pacman -S grub efibootmgr
 useradd -m -g users -G wheel -s /bin/bash nikita
@@ -20,3 +17,6 @@ mkdir /boot/efi
 mount /dev/sda1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --removable
 grub-mkconfig -o /boot/grub/grub.cfg
+exit
+umount -R /mnt
+
