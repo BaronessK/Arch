@@ -1,5 +1,4 @@
-mkfs.fat -F32 /dev/sda1
-mkfs.btrfs -f /dev/sda2
+mkfs.fat -F32 /dev/sda1 & mkfs.btrfs -f /dev/sda2
 mount /dev/sda2 /mnt
 btrfs subvolume create /mnt/@root
 btrfs subvolume create /mnt/@home
