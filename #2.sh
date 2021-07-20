@@ -8,6 +8,9 @@ echo Nikita > /etc/hostname
 echo "127.0.1.1 localhost.localdomain Nikita" > /etc/hosts
 pacman -S networkmanager
 systemctl enable NetworkManager 
+pacman -S haveged dbus-broker
+systemctl enable haveged
+systemctl enable dbus-broker
 passwd
 pacman -S grub efibootmgr
 useradd -m -g users -G wheel -s /bin/bash nikita
