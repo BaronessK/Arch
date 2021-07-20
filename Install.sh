@@ -6,7 +6,7 @@ mount /dev/sda2 /mnt
 btrfs subvolume create /mnt/@root
 btrfs subvolume create /mnt/@home
 umount /mnt
-mount -o compress=zstd,noatime,space_cache=v2,ssd,subvol=@root /sda2 /mnt
+mount -o compress=zstd,noatime,space_cache=v2,ssd,subvol=@root /dev/sda2 /mnt
 mkdir /mnt/{home}
 mount -o compress=zstd,noatimespace_cache=v2,subvol=@home /dev/sda2 /mnt/home
 mkdir /boot/efi
