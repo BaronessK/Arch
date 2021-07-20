@@ -12,6 +12,3 @@ pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst
 echo -e "[options] \n HoldPkg = pacman glibc \n Architecture = auto \n CheckSpace \n ParallelDownloads = 3 \n SigLevel = Required DatabaseOptional \n LocalFileSigLevel = Optional \n [core] \n Include = /etc/pacman.d/mirrorlist \n [extra] \n Include = /etc/pacman.d/mirrorlist \n [community] \n Include = /etc/pacman.d/mirrorlist \n [chaotic-aur] \n Include = /etc/pacman.d/chaotic-mirrorlist \n [multilib] \n Include = /etc/pacman.d/mirrorlist" > /etc/pacman.conf
 pacstrap /mnt base base-devel intel-ucode iucode-tool linux-tkg-muqss-generic_v3 linux-tkg-muqss-generic_v3-headers git pipewire pipewire-pulse pipewire-alsa
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt /bin/bash
-mv /Baronessk0-19 /mnt
-chmod +x /mnt/Baronessk0-19/#2.sh
