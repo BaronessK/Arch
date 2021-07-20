@@ -9,12 +9,8 @@ echo "127.0.1.1 localhost.localdomain Nikita" > /etc/hosts
 pacman -S networkmanager
 systemctl enable NetworkManager 
 passwd
-123
-123
 pacman -S grub efibootmgr
 useradd -m -g users -G wheel -s /bin/bash nikita
 passwd nikita
-123
-123
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --removable
 grub-mkconfig -o /boot/grub/grub.cfg
