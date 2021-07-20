@@ -13,4 +13,3 @@ pacman-key --lsign-key 3056513887B78AEB
 pacman-key --lsign-key 3056513887B78AEB
 clear
 pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-echo -e'[chaotic-aur] \n\t Include = /etc/pacman.d/chaotic-mirrorlist' > /etc/pacman.conf
