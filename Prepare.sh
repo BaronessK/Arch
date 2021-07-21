@@ -11,4 +11,4 @@ pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst
 
 pacstrap /mnt base base-devel linux-firmware linux-xanmod linux-xanmod-headers
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-root /mnt
+arch-root /mnt -c /Chroot.sh
