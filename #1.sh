@@ -12,4 +12,4 @@ pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst
 echo -e "[options] \n HoldPkg = pacman glibc \n Architecture = auto \n CheckSpace \n ParallelDownloads = 3 \n SigLevel = Required DatabaseOptional \n LocalFileSigLevel = Optional \n [core] \n Include = /etc/pacman.d/mirrorlist \n [extra] \n Include = /etc/pacman.d/mirrorlist \n [community] \n Include = /etc/pacman.d/mirrorlist \n [chaotic-aur] \n Include = /etc/pacman.d/chaotic-mirrorlist \n [multilib] \n Include = /etc/pacman.d/mirrorlist" > /etc/pacman.conf
 pacstrap /mnt base base-devel linux-tkg-muqss-generic_v3 linux-tkg-muqss-generic_v3-headers linux-firmware pipewire pipewire-pulse pipewire-alsa nano git 
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-root /mnt ./\#2.sh
+arch-root /mnt /bin/bash
