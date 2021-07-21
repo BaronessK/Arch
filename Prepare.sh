@@ -9,4 +9,4 @@ pacman-key --lsign-key 3056513887B78AEB
 pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 pacstrap /mnt base base-devel linux-firmware linux-xanmod linux-xanmod-headers
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-root /mnt -c /Arch/Chroot.sh
+arch-root /mnt -c Chroot.sh
