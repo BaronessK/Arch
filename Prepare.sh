@@ -10,4 +10,4 @@ mount -o compress=zstd,noatime,space_cache=v2,ssd,subvol=@home /dev/nvme0n1p6 /m
 mount /dev/nvme0n1p5 /mnt/boot
 pacstrap /mnt base base-devel linux-firmware linux linux-headers git nano intel-ucode iucode-tool
 genfstab -U /mnt >> /mnt/etc/fstab
-chroot /mnt /bin/bash
+arch-root /mnt
