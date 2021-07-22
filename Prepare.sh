@@ -1,12 +1,12 @@
 mkfs.fat -F32 /dev/sda1 
 mkfs.btrfs -f /dev/sda2 
-mkfs.btrfs -f /dev/sda3
-mount -o compress=zstd,noatime,space_cache=v2,ssd /dev/sda2 /mnt
+mount /dev/sda2 /mnt
+btrfs subvolume create /mnt/@root
+btrfs subvolume create /mnt/@home
 umount /mnt
-mkdir /mnt/home
-mount -o compress=zstd,noatime,space_cache=v2,ssd /dev/sda3 /mnt/home
-umount /mnt/home
-mkdir /mnt/boot
+mount -o compress=zstd,noatime,space_cache=v2,ssd,subvol=@root /dev/sda2 /mnt
+mkdir /mnt/{boot,home}
+mount -o compress=zstd,noatime,space_cache=v2,ssd,subvol=@home /dev/sda2 /mnt/home
 mount /dev/sda1 /mnt/boot
 pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com  
 pacman-key --lsign-key 3056513887B78AEB
