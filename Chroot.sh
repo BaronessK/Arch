@@ -10,8 +10,10 @@ sh -c "sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers"
 passwd nikita
 pacman -Suy iwd wpa_supplicant dhclient pipewire nano git budgie-desktop lightdm
 git clone https://github.com/aircrack-ng/rtl8188eus.git
-bootctl install & echo "default Arch" > /boot/loader/loader.conf 
-echo -e "title BlackArch \n linux /vmlinuz-linux \n initrd /initramfs-linux.img \n options root=/dev/nvme0n1p6 rw
+bootctl --path=/boot install
+echo " default Arch \n timeout 5 \n editor 1" > /boot/loader/loader.conf 
+echo -e "title Arch \n linux /vmlinuz-linux \n initrd /intel-ucode.img \n initrd /initramfs-linux.img \n options root=/dev/nvme0n1p6= rw" > /boot/loader/entries/arch.conf
 exit
-umount -R /mnt/boot & umount -R /mnt
+umount -R /mnt & umount -R /mnt/home
+
 
